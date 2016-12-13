@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
-import Icon from '../icon';
+import Icon from '../Icon';
 import splitObject from '../_util/splitObject';
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
