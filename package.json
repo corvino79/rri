@@ -50,7 +50,9 @@
     "rewire": "^2.3.4",
     "run-sequence": "^1.2.2",
     "superagent": "^1.4.0",
-    "babel-preset-stage-0": "^6.16.0"
+    "babel-preset-stage-0": "^6.16.0",
+    "classnames": "^2.2.5",
+    "omit.js": "^0.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
@@ -62,7 +64,6 @@
     "babel-preset-react-hmre": "^1.0.1",
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
-    "classnames": "^2.2.5",
     "concurrently": "^2.0.0",
     "cross-env": "^1.0.7",
     "enzyme": "^2.3.0",
@@ -79,7 +80,6 @@
     "node-sass": "https://registry.npmjs.org/node-sass/-/node-sass-3.7.0.tgz",
     "nodemon": "^1.6.0",
     "omit": "^1.0.1",
-    "omit.js": "^0.1.0",
     "react-addons-test-utils": "^15.3.2",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.2",
