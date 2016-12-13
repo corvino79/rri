@@ -5,6 +5,14 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Button from '../components/Button'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { loading: false }
+    this.enterLoading = this.enterLoading.bind(this);
+  }
+  enterLoading() {
+    this.setState({ loading: true });
+  }
   render() {
     return (
       <div>
@@ -16,7 +24,7 @@ class App extends Component {
           ]}
           htmlAttributes={{"lang": "en"}}
         />
-          <Button type="primary" loading>
+          <Button>
             Loading
           </Button>
           {this.props.children}
