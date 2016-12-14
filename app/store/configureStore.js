@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import apiMiddleware from '../middleware/api'
 import createLogger from 'redux-logger'
@@ -12,11 +12,20 @@ const logger = createLogger({
   predicate: (getState, action) => true
 })
 
-const createStoreWithMiddleware = applyMiddleware(
+const composeEnhancers =
+    process.env.NODE_ENV !== 'production' &&
+    typeof window === 'object' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        // Specify here name, actionsBlacklist, actionsCreators and other options
+      }) : compose;
+
+const createStoreWithMiddleware = composeEnhancers(applyMiddleware(
   thunkMiddleware,
   apiMiddleware,
   logger
-)(createStore)
+))(createStore)
+
 
 export default function configureStore(initialState) {
   const store = createStoreWithMiddleware(rootReducer, initialState)
