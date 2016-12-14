@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Helmet from 'react-helmet'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import Button from '../components/Button'
 
 class App extends Component {
   constructor(props) {
@@ -24,9 +23,6 @@ class App extends Component {
           ]}
           htmlAttributes={{"lang": "en"}}
         />
-          <Button href="/questions">
-            Loading
-          </Button>
           {this.props.children}
       </div>
     )

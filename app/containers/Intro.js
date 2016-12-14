@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadQuestions } from 'actions/questions'
 import Questions from 'components/Questions'
+import Button from '../components/Button'
 import { Link } from 'react-router'
 import Helmet from 'react-helmet'
 
@@ -19,11 +20,9 @@ class Intro extends Component {
         <Helmet
           title="Intro"
         />
-        <h1>dddd</h1>
-        <div>
-          <img src="/assets/images/head.png"/>
-        </div>
-        <Link to="/questions">to question</Link>
+        <Button href="/container">
+            Lista
+        </Button>
       </div>
     )
   }

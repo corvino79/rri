@@ -18,11 +18,11 @@ class QuestionContainer extends Component {
     return (
       <div>
         <Helmet
-          title="Questions"
+          title="List Container"
         />
-        <h2>Questions</h2>
+        <h2>Usuaios</h2>
         <Questions questions={this.props.questions} />
-        <Link to="/">Back to Home</Link>
+        <Link to="/">Ir al Home</Link>
       </div>
     )
   }

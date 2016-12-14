@@ -18,7 +18,7 @@ class Question extends Component {
     return (
       <div>
         <Helmet
-          title={'Question ' + this.props.params.id}
+          title={'Container ' + this.props.params.id}
         />
         <h2>{ question.get('content') }</h2>
         <h3> User: {question.getIn(['user', 'name'])} </h3>

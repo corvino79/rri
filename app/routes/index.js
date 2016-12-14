@@ -12,8 +12,8 @@ export default function(history) {
   return (
     <Router history={history}>
       <Route path="/" component={App}>
-        <Route path="questions" component={Questions} />
-        <Route path="questions/:id" component={Question} />
+        <Route path="container" component={Questions} />
+        <Route path="container/:id" component={Question} />
         <IndexRoute component={Intro} />
       </Route>
     </Router>

@@ -66,7 +66,7 @@ server.get('/api/questions/:id', (req, res)=> {
   if (question) {
     res.send(question)
   } else {
-    res.status(404).send({ reason: 'question not found' })
+    res.status(404).send({ reason: 'user no existe' })
   }
 })
 

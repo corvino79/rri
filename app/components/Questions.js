@@ -6,18 +6,18 @@ class Questions extends Component {
   render() {
     return (
       <div>
-        Questions component
+        Lista de usuarios
         {
           this.props.questions.map((q)=> {
             let id = q.get('id')
             return (
               <div key={id}>
-                <Link to={`/questions/${id}`}> { q.get('content') }</Link>
+                <Link to={`/container/${id}`}> { q.get('content') }</Link>
               </div>
             )
           })
         }
-        <Link to={`/questions/not-found`}> This link would be redirected to Index</Link>
+        <Link to={`/container/not-found`}> Este link redirecciona al Home</Link>
       </div>
     )
   }

@@ -1,10 +1,10 @@
 let _ = require('lodash')
 
 function question (id) {
-  let sampleContent = '--the question content--'
+  let sampleContent = 'Contenido '
   return {
     id,
-    content: `sample-${id}: ${sampleContent}`,
+    content: `sample-${id}: ${sampleContent} ${id}`,
     user_id: id
   }
 }
