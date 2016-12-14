@@ -24,7 +24,7 @@ class App extends Component {
           ]}
           htmlAttributes={{"lang": "en"}}
         />
-          <Button>
+          <Button href="/questions">
             Loading
           </Button>
           {this.props.children}

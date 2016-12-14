@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
+import { Link } from 'react-router';
 import Icon from '../Icon';
 import splitObject from '../_util/splitObject';
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -29,6 +30,7 @@ export type ButtonShape = 'circle' | 'circle-outline'
 export type ButtonSize = 'small' | 'large'
 
 export interface ButtonProps {
+  href?: string;
   type?: ButtonType;
   htmlType?: string;
   icon?: string;
@@ -53,6 +55,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   static propTypes = {
     type: React.PropTypes.string,
+    href: React.PropTypes.string,
     shape: React.PropTypes.oneOf(['circle', 'circle-outline']),
     size: React.PropTypes.oneOf(['large', 'default', 'small']),
     htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
@@ -103,8 +106,8 @@ export default class Button extends React.Component<ButtonProps, any> {
   render() {
     const props = this.props;
     console.log('paso: ', props);
-    const [{ type, shape, size, className, htmlType, children, icon, loading, prefixCls }, others] = splitObject(props,
-      ['type', 'shape', 'size', 'className', 'htmlType', 'children', 'icon', 'loading', 'prefixCls']);
+    const [{ type, shape, size, className, href, htmlType, children, icon, loading, prefixCls }, others] = splitObject(props,
+      ['type', 'shape', 'size', 'className', 'href', 'htmlType', 'children', 'icon', 'loading', 'prefixCls']);
     // large => lg
     // small => sm
     const sizeCls = ({
@@ -124,16 +127,29 @@ export default class Button extends React.Component<ButtonProps, any> {
 
     const kids = React.Children.map(children, insertSpace);
 
-    return (
-      <button
-        {...others}
-        type={htmlType || 'button'}
-        className={classes}
-        onMouseUp={this.handleMouseUp}
-        onClick={this.handleClick}
-      >
-        {iconType ? <Icon type={iconType} /> : null}{kids}
-      </button>
-    );
+    let button = null;
+    console.log(href);
+    if (href !== undefined) {
+      button =  <Link
+                  {...others}
+                  to={href || '#'}
+                  className={classes}
+                  onMouseUp={this.handleMouseUp}
+                  onClick={this.handleClick}
+                >
+                  {iconType ? <Icon type={iconType} /> : null}{kids}
+                </Link>
+    } else {
+      button =  <button
+                  {...others}
+                  type={htmlType || 'button'}
+                  className={classes}
+                  onMouseUp={this.handleMouseUp}
+                  onClick={this.handleClick}
+                >
+                  {iconType ? <Icon type={iconType} /> : null}{kids}
+                </button>
+    }
+    return button;
   }
 }
