@@ -1,5 +1,5 @@
 let config = {
-  API_BASE_URL: process.env.API_BASE_URL || 'https://rri.herokuapp.com'
+  API_BASE_URL: process.env.API_BASE_URL || 'http://rri.herokuapp.com'
 }
 
 export default config;
